@@ -8,6 +8,8 @@ LABEL github="https://github.com/MyUncleSam/docker-syncovery-remoteservice/"
 ENV SYNCOVERY_HOME=/config
 ENV TZ=Europe/Berlin
 ENV DEBIAN_FRONTEND=noninteractive
+ENV SSH_USERNAME
+ENV SSH_PASSWORD
 
 # download installer files for debian
 RUN mkdir -p /tmp /docker /syncovery /config \
@@ -23,8 +25,13 @@ RUN mkdir -p /tmp /docker /syncovery /config \
     && cd / \
     && rm -rf /tmp/*
 
+ADD ./start.sh /docker/start.sh
+
+RUN chmod +x /docker/start.sh
+
 EXPOSE 8949
+EXPOSE 22
 
 VOLUME [ "/logs", "/config" ]
 
-ENTRYPOINT [ "/syncovery/SyncoveryRS" ]
+ENTRYPOINT [ "/docker/start.sh" ]
