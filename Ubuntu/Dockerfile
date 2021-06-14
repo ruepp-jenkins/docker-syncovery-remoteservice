@@ -12,7 +12,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # download installer files for debian
 RUN mkdir -p /tmp /docker /syncovery /config \
     && apt-get update \
-    && apt-get install --no-install-recommends -y bash wget openssl ca-certificates tzdata openssh-server sudo \
+    && apt-get install --no-install-recommends -y bash wget openssl ca-certificates tzdata zip unzip p7zip p7zip-full p7zip-rar \
     && ln -fs /usr/share/zoneinfo/$TZ /etc/localtime && dpkg-reconfigure -f noninteractive tzdata \
     && apt-get autoclean -y && apt-get clean -y && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* \
