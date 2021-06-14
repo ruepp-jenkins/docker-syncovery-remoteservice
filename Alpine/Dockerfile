@@ -12,7 +12,7 @@ ENV TZ=Europe/Berlin
 ENV DEBIAN_FRONTEND=noninteractive
 
 # download installer files for debian
-RUN mkdir -p mkdir -p /tmp /logs /docker /syncovery /config \
+RUN mkdir -p mkdir -p /tmp /docker /syncovery /config \
     && apk update \
     && apk add bash wget openssl libressl-dev zlib zlib-dev sqlite sqlite-libs libcrypto1.1 libsmbclient \
     && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
@@ -29,12 +29,8 @@ RUN mkdir -p mkdir -p /tmp /logs /docker /syncovery /config \
     && chmod +x /syncovery/SyncoveryRS \
     && rm -rf /tmp/*
 
-ADD ./start.sh /docker/start.sh
-
-RUN chmod +x /docker/start.sh
-
 EXPOSE 8949
 
-VOLUME [ "/logs", "/config" ]
+VOLUME [ "/config" ]
 
 ENTRYPOINT [ "/syncovery/SyncoveryRS" ]

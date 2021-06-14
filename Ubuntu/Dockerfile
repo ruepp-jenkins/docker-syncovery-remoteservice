@@ -10,7 +10,7 @@ ENV TZ=Europe/Berlin
 ENV DEBIAN_FRONTEND=noninteractive
 
 # download installer files for debian
-RUN mkdir -p /tmp /logs /docker /syncovery /config \
+RUN mkdir -p /tmp /docker /syncovery /config \
     && apt-get update \
     && apt-get install --no-install-recommends -y bash wget openssl ca-certificates tzdata \
     && ln -fs /usr/share/zoneinfo/$TZ /etc/localtime && dpkg-reconfigure -f noninteractive tzdata \
@@ -22,10 +22,6 @@ RUN mkdir -p /tmp /logs /docker /syncovery /config \
     && chmod +x /syncovery/SyncoveryRS \
     && cd / \
     && rm -rf /tmp/*
-
-ADD ./start.sh /docker/start.sh
-
-RUN chmod +x /docker/start.sh
 
 EXPOSE 8949
 
