@@ -5,13 +5,14 @@ ARG GUARD_DOWNLOADLINK
 ARG REMOTE_DOWNLOADLINK
 
 LABEL maintainer="Stefan Ruepp <stefan@ruepp.info>"
-LABEL github="https://github.com/MyUncleSam/docker-syncovery/"
+LABEL github="https://github.com/MyUncleSam/docker-syncovery-remoteservice/"
 
+ENV SYNCOVERY_HOME=/config
 ENV TZ=Europe/Berlin
 ENV DEBIAN_FRONTEND=noninteractive
 
 # download installer files for debian
-RUN mkdir -p mkdir -p /tmp /logs /docker /syncovery \
+RUN mkdir -p mkdir -p /tmp /logs /docker /syncovery /config \
     && apk update \
     && apk add bash wget openssl libressl-dev zlib zlib-dev sqlite sqlite-libs libcrypto1.1 libsmbclient \
     && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
