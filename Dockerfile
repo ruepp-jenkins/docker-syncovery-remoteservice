@@ -25,6 +25,6 @@ RUN mkdir -p /tmp /docker /syncovery /config \
 
 EXPOSE 8949
 
-VOLUME [ "/logs", "/config" ]
+VOLUME [ "/config" ]
 
 ENTRYPOINT [ "/syncovery/SyncoveryRS" ]
