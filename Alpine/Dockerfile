@@ -8,8 +8,8 @@ LABEL github="https://github.com/MyUncleSam/docker-syncovery-remoteservice/"
 ENV SYNCOVERY_HOME=/config
 ENV TZ=Europe/Berlin
 ENV DEBIAN_FRONTEND=noninteractive
-ENV SSH_USERNAME
-ENV SSH_PASSWORD
+ENV SSH_USERNAME=default
+ENV SSH_PASSWORD=pass
 
 # download installer files for debian
 RUN mkdir -p mkdir -p /tmp /docker /syncovery /config \
