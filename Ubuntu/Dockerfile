@@ -31,4 +31,4 @@ EXPOSE 8949
 
 VOLUME [ "/logs", "/config" ]
 
-ENTRYPOINT [ "/docker/start.sh" ]
+ENTRYPOINT [ "/syncovery/SyncoveryRS" ]
