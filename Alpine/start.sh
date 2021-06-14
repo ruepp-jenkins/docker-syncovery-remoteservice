@@ -5,7 +5,7 @@ echo "OS Date: $(date)"
 if ! id -u $SSH_USERNAME > /dev/null 2>&1; then
     echo "adding ssh user"
 
-    if [ "${SSH_USERNAME} = "default"]; then
+    if [ "${SSH_USERNAME}" = "default"]; then
         echo "for security reasons username default is not allowed - please check your docker environment variables!"
         echo "no user was created
     else
