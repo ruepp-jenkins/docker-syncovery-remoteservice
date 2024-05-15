@@ -20,4 +20,4 @@ RUN /bin/bash /build/build.sh
 EXPOSE 8949
 
 VOLUME [ "/config" ]
-ENTRYPOINT [ "/docker/start.sh" ]
+CMD [ "/docker/start.sh" ]
