@@ -6,6 +6,7 @@ apt-get update
 apt-get install -y \
     bash \
     ca-certificates \
+    curl \
     openssl \
     p7zip \
     p7zip-full \
