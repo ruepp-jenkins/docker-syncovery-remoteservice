@@ -1,10 +1,5 @@
 #!/bin/bash
 
-echo "OS Date: $(date)"
-echo "Starting SyncoveryRS"
-/syncovery/SyncoveryRS
-
-
 # initialize trap to forceful stop the bot
 trap terminator SIGHUP SIGINT SIGQUIT SIGTERM
 function terminator() {
