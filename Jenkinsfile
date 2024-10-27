@@ -14,7 +14,8 @@ pipeline {
     }
 
     environment {
-        IMAGE_FULLNAME = 'stefanruepp/syncoveryremote'
+        IMAGE_FULLNAME = 'stefanruepp/syncoveryremote',
+        DOCKER_API_PASSWORD = credentials('DOCKER_API_PASSWORD')
     }
 
     triggers {
