@@ -14,7 +14,7 @@ pipeline {
     }
 
     environment {
-        IMAGE_FULLNAME = 'stefanruepp/syncoveryremote',
+        IMAGE_FULLNAME = 'stefanruepp/syncoveryremote'
         DOCKER_API_PASSWORD = credentials('DOCKER_API_PASSWORD')
     }
 
@@ -69,6 +69,7 @@ pipeline {
                 link: env.BUILD_URL,
                 title: JOB_NAME,
                 webhookURL: DISCORD_WEBHOOK
+            cleanWs()
         }
     }
 }
