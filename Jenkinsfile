@@ -24,6 +24,7 @@ pipeline {
     triggers {
         URLTrigger(
             cronTabSpec: 'H/30 * * * *',
+            labelRestriction: 'urltrigger',
             entries: [
                 URLTriggerEntry(
                     url: 'https://www.syncovery.com/linver_RS-x86_64.tar.gz.txt',
